@@ -71,34 +71,37 @@ class MainActivity : AppCompatActivity() {
 fun MyApp(kittens: List<Kitten>) {
     Surface(color = MaterialTheme.colors.background) {
         LazyColumn(modifier = Modifier.fillMaxHeight()) {
-            items(items = kittens, itemContent = { kitten ->
+            items(
+                items = kittens,
+                itemContent = { kitten ->
 
-                Card(
-                    shape = RoundedCornerShape(8.dp),
-                    modifier = Modifier
-                        .wrapContentHeight()
-                        .fillMaxWidth()
-                        .height(150.dp)
-                        .padding(16.dp)
-                ) {
-                    Row(Modifier.padding(16.dp)) {
-                        CoilImage(
-                            data = kitten.imageUrl,
-                            contentDescription = null,
-                            modifier = Modifier.size(64.dp).align(Alignment.CenterVertically)
-                        )
+                    Card(
+                        shape = RoundedCornerShape(8.dp),
+                        modifier = Modifier
+                            .wrapContentHeight()
+                            .fillMaxWidth()
+                            .height(150.dp)
+                            .padding(16.dp)
+                    ) {
+                        Row(Modifier.padding(16.dp)) {
+                            CoilImage(
+                                data = kitten.imageUrl,
+                                contentDescription = null,
+                                modifier = Modifier.size(64.dp).align(Alignment.CenterVertically)
+                            )
 
-                        Spacer(Modifier.width(8.dp))
+                            Spacer(Modifier.width(8.dp))
 
-                        Text(
-                            text = "Meow ${kitten.index}",
-                            style = MaterialTheme.typography.subtitle2,
-                            textAlign = TextAlign.End,
-                            modifier = Modifier.weight(1f).align(Alignment.CenterVertically)
-                        )
+                            Text(
+                                text = "Meow ${kitten.index}",
+                                style = MaterialTheme.typography.subtitle2,
+                                textAlign = TextAlign.End,
+                                modifier = Modifier.weight(1f).align(Alignment.CenterVertically)
+                            )
+                        }
                     }
                 }
-            })
+            )
         }
     }
 }
